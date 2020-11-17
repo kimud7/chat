@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#" />
+    <title>채팅</title>
+  </head>
+  <body>
+    <div>test</div>
+    <script>
+      const webSocket = new WebSocket("ws://localhost:8005");
+      webSocket.onopen = function(){
+        console.log('서버와 소켓 연결 성공')
+      };
+      webSocket.onmessage = function(event){
+        console.log(event.data);
+        webSocket.send('서버에게 답');
+      }
+    </script>
+  </body>
+</html>
